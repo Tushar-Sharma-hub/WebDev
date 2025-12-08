@@ -1,0 +1,12 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+#press{
+    padding: 5px 25px;
+    font-size: 2em;
+    border-radius: 5px;
+}
+#mylabel{
+    font-size: 3em;
+}
