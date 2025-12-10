@@ -11,10 +11,10 @@
         <h1>Temperature Conversion:</h1>
         <input type="number" id="textbox" value="0"><br><br>
 
-        <input type="radio" id="toF">
+        <input type="radio" id="toF" name="unit">  <!-- by assigning name we make it unique so that only one radio button is selected -->
         <label for="toF">Celcius ➡ Fahrenheit</label><br>
 
-        <input type="radio" id="toC">
+        <input type="radio" id="toC" name="unit">
         <label for="toC">Fahrenheit ➡ Celcius</label><br><br>
 
         <button type="button" onclick="convert()">Submit</button>
