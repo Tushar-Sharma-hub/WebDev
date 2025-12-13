@@ -1,0 +1,22 @@
+// object = A collection of related properties and/or methods Can represent real world objects (people, products, places)
+// object = {key: value,
+// function ()}
+
+const person1={
+    firstName:"Tushar",
+    secondName:"Sharma",
+    age:19,
+    isEmployed:false,
+    sayhello: function(){console.log("Hi lil br i am tushar.")},
+    saybye: function(){console.log("Bye!!")},
+}
+const person2={
+    firstName:"Hushar",
+    secondName:"Sharma",
+    age:22,
+    isEmployed:true,
+    sayhello: function(){console.log("Hi lil br i am hushar.")},
+    saybye: function(){console.log("Byeeee!!")},
+}
+person1.sayhello(); //acces object variables,function using dot operator.
+person2.sayhello();
