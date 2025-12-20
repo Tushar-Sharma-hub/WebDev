@@ -3,6 +3,10 @@ let timer=null;
 let startTime=0;
 let elapsedTime=0;
 let isRunning=false;
+//What does Date.now() return?
+// Returns the number of milliseconds passed since
+// January 1, 1970, 00:00:00 UTC
+// (This moment is called the Unix Epoch)
 function start(){
     if(!isRunning){
         startTime=Date.now()-elapsedTime;
