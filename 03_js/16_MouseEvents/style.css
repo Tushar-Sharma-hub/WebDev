@@ -1,0 +1,13 @@
+#mybox{
+    background-color: lightblue;
+    width: 300px;
+    height: 300px;
+    font-size: 4.5rem;
+    font-weight: bold;
+    text-align: center;
+    align-content: center;
+}
+#myButton{
+    font-size: 3rem;
+    
+}
