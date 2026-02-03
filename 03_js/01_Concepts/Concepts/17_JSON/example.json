@@ -1,0 +1,6 @@
+{
+  "name": "Tushar",
+  "age": 20,
+  "skills": ["Java", "C++", "JS"],
+  "isStudent": true
+}

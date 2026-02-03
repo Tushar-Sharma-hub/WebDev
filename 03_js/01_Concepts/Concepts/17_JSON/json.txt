@@ -1,0 +1,10 @@
+What is JSON?
+JSON (JavaScript Object Notation) is a lightweight data format used to send & receive data, mostly between:
+frontend ↔ backend
+browser ↔ server (APIs)
+Key Rules:
+Data is in key : value pairs
+Keys are always strings
+Values can be: string, number, boolean, array, object, null
+❌ No functions
+❌ No comments
