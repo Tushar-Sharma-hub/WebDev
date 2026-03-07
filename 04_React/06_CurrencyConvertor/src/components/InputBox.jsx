@@ -18,7 +18,6 @@ function InputBox({
                     {label}
                 </label>
                 <input
-                    
                     className="outline-none w-full bg-transparent py-1.5"
                     type="number"
                     placeholder="Amount"
@@ -33,7 +32,6 @@ function InputBox({
                     value={selectCurrency}
                     onChange={(e)=> onCurrencyChange && onCurrencyChange(e.target.value)}
                 >
-                    
                         {currencyOptions.map((currency)=>(
                             <option key={currency} value={currency}>
                                 {currency.toUpperCase()}
