@@ -1,11 +1,11 @@
-import Tag from "../components/Tag";
+//Custom hook it will return gif,loading,fetchdata/
 import axios from 'axios';
 import { useEffect,useState } from "react";
 
 const API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
 const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
 
-function UseGif(tag) {
+function UseGif() {
     const [gif,setGif]=useState(null);
     const [loading,setLoading]=useState(false);
 

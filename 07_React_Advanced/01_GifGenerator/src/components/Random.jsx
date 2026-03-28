@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
 import Spinner from './Spinner';
 import UseGif from '../hooks/UseGif';
 const API_KEY = import.meta.env.VITE_GIPHY_API_KEY;

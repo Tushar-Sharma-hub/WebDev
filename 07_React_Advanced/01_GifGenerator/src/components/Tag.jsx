@@ -23,7 +23,7 @@ function Tag() {
     //     fetchData();
     // },[])
 
-    const {gif,loading,fetchData}=UseGif(tag); 
+    const {gif,loading,fetchData}=UseGif(); 
 
     function changeHandler(event){
         setTag(event.target.value)
