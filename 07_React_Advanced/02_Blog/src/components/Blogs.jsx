@@ -1,6 +1,7 @@
 import React, { use, useContext } from 'react'
 import { AppContext } from '../context/AppContext';
 import Spinner from './Spinner';
+import BlogDetails from './BlogDetails';
 function Blogs() {
     //consume data from context
     const {loading,posts}=useContext(AppContext);
@@ -16,21 +17,7 @@ function Blogs() {
                     ):
                     (
                         posts.map((post)=>(
-                            <div key={post.id} className='m-2 p-3'>
-                                <p className='font-bold text-amber-700 text-xl'>{post.title}</p>
-                                <p className='text-gray-500 text-sm'>
-                                    By <span>{post.author}</span> on <span>{post.category}</span>
-                                </p>
-                                <p className='text-gray-500 text-xs'>Posted on {post.date}</p>
-                                <p className='text-black text-sm'>{post.content}</p>
-                                <div>
-                                    {post.tags.map((tag,index)=>(
-                                        <span key={index} className=' text-blue-500 p-2 cursor-pointer hover:text-blue-700'>
-                                            #{tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
+                            <BlogDetails key={post.id} post={post}/>
                         ))
                     )
                 )

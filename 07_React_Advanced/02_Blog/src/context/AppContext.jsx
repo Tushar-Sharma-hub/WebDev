@@ -3,6 +3,7 @@
 // such as the current authenticated user, theme, or preferred language.
 import { createContext, useState } from "react";
 import { baseUrl } from "../baseUrl";
+import { useNavigate } from "react-router-dom";
 
 export const AppContext=createContext();
 
@@ -11,12 +12,20 @@ export default function AppContextProvider({children}){ //here children denotes 
     const [posts,setPosts]=useState([]);
     const [page,setPage]=useState(1);
     const [totalPages,setTotalPages]=useState(null);
+    const navigation=useNavigate();
 
     //data filling 
-    async function fetchBlogPosts(page){
+    async function fetchBlogPosts(page,tag,category){
         setLoading(true);
+        let url=`${baseUrl}?page=${page}`;
+        if(tag){
+            url+=`&tag=${tag}`;
+        }
+        if(category){
+            url+=`&category=${category}`;
+        }
         try {
-            const response=await fetch(`${baseUrl}?page=${page}`); //base url and adding page number.
+            const response=await fetch(url); //base url and adding page number.
             const data=await response.json();
             setPosts(data.posts);
             setPage(data.page);
@@ -31,8 +40,8 @@ export default function AppContextProvider({children}){ //here children denotes 
     }
 
     function handlePageChange(page){
+        navigation({search:`?page=${page}`});
         setPage(page);
-        fetchBlogPosts(page);
     }
 
     const value={
