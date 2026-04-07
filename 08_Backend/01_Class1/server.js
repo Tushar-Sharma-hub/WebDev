@@ -9,7 +9,7 @@ app.use(bodyParser.json()); //bodyparser se data ko json me convert karenge.
 
 
 //activate server at 3000 port.
-app.listen(3000,()=>{
+app.listen(3000,()=>{ //bad practice usually we use env variable for port number.
     console.log("Server Started at Port no. 3000.")
 });
 
