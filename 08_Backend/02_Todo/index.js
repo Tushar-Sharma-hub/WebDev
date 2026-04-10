@@ -1,3 +1,9 @@
+// Summary of the Flow
+// Request hits index.js.
+// index.js sends it to routes.
+// routes matches /createTodo and calls a function in the controller.
+// The controller uses the model to save the "Todo" into the database.
+
 const express = require("express");
 const app = express();
 
