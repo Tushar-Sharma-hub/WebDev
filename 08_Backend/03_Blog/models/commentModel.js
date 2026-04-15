@@ -9,7 +9,8 @@ const commentSchema=new mongoose.Schema({
         required:true,
     },
     user:{ //this will be the reference to the user who made the comment.
-        required:true,
+        type: String,
+        required:true
     },
     body:{ //this will be the actual comment text. It will be of type String and will be required.
         type:String, 
@@ -17,4 +18,4 @@ const commentSchema=new mongoose.Schema({
     }
 })
 
-exports.Comment=mongoose.model("Comment",commentSchema);
+module.exports = mongoose.model("Comment",commentSchema)
