@@ -1,5 +1,6 @@
 const bcrypt=require("bcrypt");
 const User=require("../model/userschema");
+const jwt=require("jsonwebtoken");
 
 //signup controller
 exports.signup=async(req,res)=>{
@@ -38,16 +39,32 @@ exports.login=async(req,res)=>{
     try{
         const {email,password}=req.body;
         //Find the user by email
-        const user=await User.findOne({email});
+        let user=await User.findOne({email});
         if(!user){
             return res.status(400).json({message:"Invalid email or password"});
         }
-        //Compare the provided password with the hashed password
-        const isMatch=await bcrypt.compare(password,user.password);
-        if(!isMatch){
-            return res.status(400).json({message:"Invalid email or password"});
+        //Verify password and geenrate a jwt token
+        const payload={
+            email:user.email,
+            id:user._id,
+            role:user.role
+        };
+        if(await bcrypt.compare(password,user.password)){
+            let token=jwt.sign(payload,process.env.JWT_SECRET,{
+                expiresIn:"2h"
+            });
+            user = user.toObject();
+            user.token=token; //to include the token in the response
+            user.password=undefined; //to hide the password in the response
+            const option={
+                expires:new Date(Date.now()+2*60*60*1000), //2 hours
+                httpOnly:true
+            }
+            res.cookie("token",token,option).status(200).json({message:"Login successful",user:user,token:token});
         }
-        res.status(200).json({message:"Login successful",user});
+        else{
+            res.status(400).json({message:"Invalid email or password"});
+        }
     }
     catch(error){
         res.status(500).json({message:"Error occurred during login",error:error.message});
