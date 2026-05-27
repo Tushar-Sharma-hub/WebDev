@@ -43,8 +43,8 @@ exports.login=async(req,res)=>{
         if(!user){
             return res.status(400).json({message:"Invalid email or password"});
         }
-        //Verify password and geenrate a jwt token
-        const payload={
+        //Verify password and generate a jwt token
+        const payload={ //payload to be included in the token
             email:user.email,
             id:user._id,
             role:user.role
