@@ -5,7 +5,7 @@ require("dotenv").config();
 
 exports.auth=(req,res,next)=>{
     try{
-        const token=req.body.token || req.query.token || req.headers["authorization"];
+        const token=req.body.token || req.headers["Authorization"].replace("Bearer ",""); //to extract the token from the request header
         if(!token){
             return res.status(401).json({message:"Access denied. No token provided."});
         }
@@ -24,7 +24,7 @@ exports.auth=(req,res,next)=>{
 
 exports.isStudent=(req,res,next)=>{
     try{
-        if(req.user.role!=="student"){
+        if(req.user.role!=="Student"){
             return res.status(403).json({message:"Access denied. Only students are allowed."});
         }
         next();
@@ -35,7 +35,7 @@ exports.isStudent=(req,res,next)=>{
 
 exports.isAdmin=(req,res,next)=>{
     try{
-        if(req.user.role!=="admin"){
+        if(req.user.role!=="Admin"){
             return res.status(403).json({message:"Access denied. Only admins are allowed."});
         }
         next();

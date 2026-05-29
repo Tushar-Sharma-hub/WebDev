@@ -53,7 +53,6 @@ exports.login=async(req,res)=>{
             let token=jwt.sign(payload,process.env.JWT_SECRET,{
                 expiresIn:"2h"
             });
-            user = user.toObject();
             user.token=token; //to include the token in the response
             user.password=undefined; //to hide the password in the response
             const option={
