@@ -5,7 +5,7 @@ require("dotenv").config();
 
 exports.auth=(req,res,next)=>{
     try{
-        const token=req.body.token || req.headers["Authorization"].replace("Bearer ",""); //to extract the token from the request header
+        const token = req.body.token || req.cookies.token || req.headers["Authorization"].replace("Bearer ",""); //to extract the token from the request header
         if(!token){
             return res.status(401).json({message:"Access denied. No token provided."});
         }
