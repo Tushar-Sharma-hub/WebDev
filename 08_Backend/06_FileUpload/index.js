@@ -10,7 +10,6 @@ app.use(express.json()); //to parse the incoming JSON data in the request body a
 const fileUpload=require("express-fileupload");
 app.use(fileUpload({
     useTempFiles:true, //to use temporary files instead of memory for storing uploaded files. This is useful for handling large file uploads without consuming too much memory.
-    tempFileDir:"/tmp/" //to specify the directory where temporary files will be stored. This is important for managing the storage of uploaded files and ensuring that they are properly handled during the upload process.
 }));
 
 //Database connection and cloudinary configuration
